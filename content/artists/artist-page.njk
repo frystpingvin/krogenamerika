@@ -1,0 +1,20 @@
+---
+pagination:
+  data: artists
+  size: 1
+  alias: artist
+permalink: "artists/{{ artist.name | slugify }}/"
+layout: layouts/base.njk
+eleventyComputed:
+  header: "{{ artist.name }}"
+---
+
+<div class="flex gap-8">
+    {# TODO: add support for alt and use elenty-img #}
+		<img src="{{ artist.imageUrl }}" class="max-w-md" />
+
+		<div>
+			<h2>{{ artist.name }}</h2>
+      {{ artist.information | markdown | safe }}
+		</div>
+</div>

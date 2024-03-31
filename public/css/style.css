@@ -1,0 +1,19 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/*Your Custom CSS Goes here*/
+
+@layer base {
+	html {
+		@apply font-serif;
+	}
+}
+
+a {
+	text-decoration: underline;
+
+	&:hover {
+		opacity: 0.75;
+	}
+}

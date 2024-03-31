@@ -1,28 +1,27 @@
 ---
-layout: layouts/home.njk
+layout: layouts/base.njk
 eleventyNavigation:
   key: Home
   order: 1
-numberOfLatestPostsToShow: 3
+title: Krogen Amerika - Grafikcentrum i Östergötland
+header: Grafikcentrum i Östergötland
+subheader: Krogen Amerika
+imageurl: ../public/img/index-header.jpg
+imagealt: Ett kollage av olika konstverk av Krogen Amerikas konstnärer
 ---
-{% set postsCount = collections.posts | length %}
-{% set latestPostsCount = postsCount | min(numberOfLatestPostsToShow) %}
-<h1>Latest {{ latestPostsCount }} Post{% if latestPostsCount != 1 %}s{% endif %}</h1>
 
-{% set postslist = collections.posts | head(-1 * numberOfLatestPostsToShow) %}
-{% set postslistCounter = postsCount %}
-{% include "postslist.njk" %}
+<p class="mb-4">
+	Krogen Amerika är Östergötlands kollektivverkstad för konstnärer som arbetar med grafik. Huset som är ett av Linköpings äldsta uppfördes i början av 1700-talet alldeles efter den stora branden. I dag är vi ett 20-tal konstnärer som använder verkstaden och vi arbetar med de flesta grafiska tekniker såsom torrnål, etsning, träsnitt, fotopolymer och silkscreen.
+</p>
 
-{% set morePosts = postsCount - numberOfLatestPostsToShow %}
-{% if morePosts > 0 %}
-<p>{{ morePosts }} more post{% if morePosts != 1 %}s{% endif %} can be found in <a href="/blog/">the archive</a>.</p>
-{% endif %}
+<p>
+	Vi ordnar även kurser i grafik och visningar av de grafiska teknikerna. I huset har vi ett galleri där vi visar verk av konstnärer från hela Sverige. Välkommen att besöka oss eller boka en visning via <a href="mailto:krogenamerika@gmail.com">krogenamerika@gmail.com</a>.
+<p>
 
 {# List every content page in the project #}
-{#
+
 <ul>
 	{%- for entry in collections.all %}
 	<li><a href="{{ entry.url }}"><code>{{ entry.url }}</code></a></li>
 	{%- endfor %}
 </ul>
-#}

@@ -1,61 +1,45 @@
-<!doctype html>
-<html lang="{{ metadata.language }}">
+<!DOCTYPE html>
+<html lang="sv">
 	<head>
-		<meta charset="utf-8">
+		<meta charset="UTF-8">
+		<meta http-equiv="x-ua-compatible" content="ie=edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
-		<title>{{ title or metadata.title }}</title>
-		<meta name="description" content="{{ description or metadata.description }}">
-
-		{#- Atom and JSON feeds included by default #}
-		<link rel="alternate" href="/feed/feed.xml" type="application/atom+xml" title="{{ metadata.title }}">
-		<link rel="alternate" href="/feed/feed.json" type="application/json" title="{{ metadata.title }}">
-
-		{#- Uncomment this if you’d like folks to know that you used Eleventy to build your site!  #}
-		{#- <meta name="generator" content="{{ eleventy.generator }}"> #}
-
-		{#-
-		CSS bundles are provided via the `eleventy-plugin-bundle` plugin:
-		1. You can add to them using `{% css %}`
-		2. You can get from them using `{% getBundle "css" %}` or `{% getBundleFileUrl "css" %}`
-		3. You can do the same for JS: {% js %}{% endjs %} and <script>{% getBundle "js" %}</script>
-		4. Learn more: https://github.com/11ty/eleventy-plugin-bundle
-		#}
-
-		{#- Add an arbitrary string to the bundle #}
-		{%- css %}* { box-sizing: border-box; }{% endcss %}
-		{#- Add the contents of a file to the bundle #}
-		{%- css %}{% include "public/css/index.css" %}{% endcss %}
-		{#- Or add from node_modules #}
-		{# {%- css %}{% include "node_modules/prismjs/themes/prism-okaidia.css" %}{% endcss %} #}
-
-		{#- Render the CSS bundle using Inlined CSS (for the fastest site performance in production) #}
-		<style>{% getBundle "css" %}</style>
-		{#- Renders the CSS bundle using a separate file, if you can't set CSP directive style-src: 'unsafe-inline' #}
-		{#- <link rel="stylesheet" href="{% getBundleFileUrl "css" %}"> #}
+		<title>
+			{{title}}
+		</title>
+		{% if description %}
+			<meta name="description" content="{{description}}"/>
+		{% endif %}
+		{% block head %}{% endblock %}
+		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
+		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
 	</head>
-	<body>
-		<a href="#skip" class="visually-hidden">Skip to main content</a>
+	<body class="text-lg bg-white text-stone-950 dark:bg-stone-950 dark:text-white">
+		{% include "./partials/header.njk" %}
 
-		<header>
-			<a href="/" class="home-link">{{ metadata.title }}</a>
+		<div class="container max-w-4xl py-40 px-8">
+			{% if imageurl %}
+				{% image imageurl, imagealt, "w-full max-w-xl mx-auto mb-16" %}
+			{% endif %}
 
-			{#- Read more about `eleventy-navigation` at https://www.11ty.dev/docs/plugins/navigation/ #}
-			<nav>
-				<h2 class="visually-hidden">Top level navigation menu</h2>
-				<ul class="nav">
-				{%- for entry in collections.all | eleventyNavigation %}
-					<li class="nav-item"><a href="{{ entry.url }}"{% if entry.url == page.url %} aria-current="page"{% endif %}>{{ entry.title }}</a></li>
-				{%- endfor %}
-				</ul>
-			</nav>
-		</header>
+			{% if subheader %}
+				<h1 class="opacity-65 uppercase font-medium tracking-wide">{{ subheader }}</h1>
+			{% endif %}
 
-		<main id="skip">
+			{% if header %}
+				<h2 class="text-4xl lg:text-6xl tracking-tight mb-4"> {{ header }} </h2>
+			{% endif %}
+
 			{{ content | safe }}
-		</main>
+		</div>
 
-		<footer></footer>
+		{% include "./partials/footer.njk" %}
 
-		<!-- This page `{{ page.url | htmlBaseUrl }}` was built on {% currentBuildDate %} -->
+		{% if path == "home" %}
+			<!-- Netlify Identity Widget -->
+			<!-- Needed only if you are using Netlify Identity feature -->
+			<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+		{% endif %}
+
 	</body>
 </html>

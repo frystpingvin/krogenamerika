@@ -1,0 +1,27 @@
+[
+	{
+		"name": "Randi Leirnes",
+		"imageUrl": "/img/peggy.jpg",
+		"information": "**markdown content**"
+	},
+	{
+		"name": "Exempel 1",
+		"imageUrl": "/img/peggy.jpg",
+		"information": "markdown content"
+	},
+	{
+		"name": "Exempel 2",
+		"imageUrl": "/img/peggy.jpg",
+		"information": "markdown content"
+	},
+	{
+		"name": "Exempel 3",
+		"imageUrl": "/img/peggy.jpg",
+		"information": "markdown content"
+	},
+	{
+		"name": "Exempel 4",
+		"imageUrl": "/img/peggy.jpg",
+		"information": "markdown content"
+	}
+]

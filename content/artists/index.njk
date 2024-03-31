@@ -1,0 +1,13 @@
+---
+layout: layouts/base.njk
+header: Konstnärer
+---
+
+<div class="grid grid-cols-3 gap-4">
+	{% for artist in artists %}
+		<div style="background: red;">
+			<img src="{{ artist.imageUrl }}" />
+			<h2>{{ artist.name }}</h2>
+		</div>
+	{% endfor %}
+</div>
