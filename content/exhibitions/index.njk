@@ -1,30 +1,28 @@
 ---
 layout: layouts/base.njk
-header: Utställningar
+eleventyNavigation:
+  key: Utställning
+  order: 2
+header: Utställning
 ---
 
 <section class="mt-15">
-		{% if exhibitions %}
+    {% if exhibition %}
+      <div class="flex exhibitions-center gap-8">
+          <img src="{{ exhibition.imageUrl }}" class="max-w-md" />
 
-				{% for exhibition in exhibitions %}
-						<div class="flex exhibitions-center gap-8">
-								<img src="{{ exhibition.imageUrl }}" class="max-w-md" />
+          <div>
+              <h2>{{ exhibition.description }}</h2>
 
-								<div>
-										<h2>{{ exhibition.description }}</h2>
-
-										<h3>Datum:</h3>
-										<ul>
-												{% for date in exhibition.dates %}
-														<li x-data="{ date: new Date('{{ date }}') }">
-																<time x-bind:datetime="date" x-text="date.toLocaleDateString('sv-SE', {weekday: 'long', day: 'numeric', month: 'long'})"></time>
-														</li>
-												{% endfor %}
-										</ul>
-								</div>
-						</div>
-				{% endfor %}
-
-		{% endif %}
-
+              <h3>Datum:</h3>
+              <ul>
+                  {% for date in exhibition.dates %}
+                      <li x-data="{ date: new Date('{{ date }}') }">
+                          <time x-bind:datetime="date" x-text="date.toLocaleDateString('sv-SE', {weekday: 'long', day: 'numeric', month: 'long'})"></time>
+                      </li>
+                  {% endfor %}
+              </ul>
+          </div>
+      </div>
+    {% endif %}
 </section>
