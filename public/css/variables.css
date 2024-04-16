@@ -1,0 +1,22 @@
+:root {
+	/* Colors */
+	--bg-primary: #ffffff;
+	--bg-secondary: #f5f5f4;
+	--fg-primary: #0c0a09;
+	--fg-secondary: #61605f;
+	--fg-tertiary: #80807f;
+	--fg-action: #2f66ed;
+	--border-primary: #e5e7eb;
+}
+
+@media (prefers-color-scheme: dark) {
+	:root {
+		--bg-primary: #0c0a09;
+		--bg-secondary: #1b1917;
+		--fg-primary: #ffffff;
+		--fg-secondary: #aaa9a9;
+		--fg-tertiary: #8d8c8b;
+		--fg-action: #2f66ed;
+		--border-primary: #e5e7eb;
+	}
+}

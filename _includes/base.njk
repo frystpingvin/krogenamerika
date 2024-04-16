@@ -4,30 +4,41 @@
 		<meta charset="UTF-8">
 		<meta http-equiv="x-ua-compatible" content="ie=edge"/>
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 		<title>
 			{{title}}
 		</title>
+
 		{% if description %}
 			<meta name="description" content="{{description}}"/>
 		{% endif %}
-		{% block head %}{% endblock %}
-		<link rel="stylesheet" type="text/css" href="/css/style.css"/>
-		<script defer src="https://cdn.jsdelivr.net/npm/alpinejs@3.13.5/dist/cdn.min.js"></script>
+
+		{# Add the contents of a file to the bundle #}
+		{% css %}
+			{% include "public/css/variables.css" %}
+			{% include "public/css/typography.css" %}
+			{% include "public/css/base.css" %}
+		{% endcss %}
+
+		{# Render the CSS bundle using Inlined CSS (for the fastest site performance in production) #}
+		<style>{% getBundle "css" %}</style>
+		{# Renders the CSS bundle using a separate file, if you can't set CSP directive style-src: 'unsafe-inline' #}
+		{# <link rel="stylesheet" href="{% getBundleFileUrl "css" %}"> #}
 	</head>
-	<body class="text-lg bg-white text-stone-950 dark:bg-stone-950 dark:text-white">
+	<body>
 		{% include "./partials/header.njk" %}
 
-		<div class="container max-w-4xl py-40 px-8">
+		<div class="container">
 			{% if imageurl %}
-				{% image imageurl, imagealt, "w-full max-w-xl mx-auto mb-16" %}
+				{% image imageurl, imagealt %}
 			{% endif %}
 
 			{% if subheader %}
-				<h1 class="opacity-65 uppercase font-medium tracking-wide">{{ subheader }}</h1>
+				<h2 class="heading-subdisplay">{{ subheader }}</h2>
 			{% endif %}
 
 			{% if header %}
-				<h2 class="text-4xl lg:text-6xl tracking-tight mb-4"> {{ header }} </h2>
+				<h1 class="heading-display">{{ header }}</h1>
 			{% endif %}
 
 			{{ content | safe }}
@@ -40,6 +51,5 @@
 			<!-- Needed only if you are using Netlify Identity feature -->
 			<script type="text/javascript" src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
 		{% endif %}
-
 	</body>
 </html>

@@ -1,0 +1,24 @@
+html {
+	/* Font stack from https://modernfontstacks.com */
+	font-family: Optima, Candara, 'Noto Sans', source-sans-pro, sans-serif;
+	font-weight: normal;
+	font-size: 1.25rem;
+	line-height: 1.75rem;
+	background-color: var(--bg-primary);
+	color: var(--fg-primary);
+}
+
+/* Base classes */
+.container {
+	max-width: 1280px;
+	margin-inline: auto;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
+
+.container-narrow {
+	max-width: 768px;
+	margin-inline: auto;
+	padding-left: 2rem;
+	padding-right: 2rem;
+}
