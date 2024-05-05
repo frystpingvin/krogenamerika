@@ -1,0 +1,18 @@
+---
+layout: base.njk
+---
+<main class="container">
+	{% if imageurl %}
+		<img src="{{ imageurl }}" alt="{{ imagealt }}" />
+	{% endif %}
+
+	{% if subheader %}
+		<h2 class="heading-subdisplay">{{ subheader }}</h2>
+	{% endif %}
+
+	{% if header %}
+		<h1 class="heading-display">{{ header }}</h1>
+	{% endif %}
+
+	{{ content | safe }}
+</main>

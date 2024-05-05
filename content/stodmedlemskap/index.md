@@ -1,5 +1,5 @@
 ---
-layout: prose.njk
+layout: container-narrow.njk
 eleventyNavigation:
   key: Stödmedlemskap
   order: 30

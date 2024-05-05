@@ -4,7 +4,7 @@ pagination:
   size: 1
   alias: artist
 permalink: "artists/{{ artist.name | slugify }}/"
-layout: base.njk
+layout: container-narrow.njk
 eleventyComputed:
   header: "{{ artist.name }}"
 ---
