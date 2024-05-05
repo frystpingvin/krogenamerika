@@ -1,13 +1,19 @@
-<div class="fixed w-full backdrop-blur-xl bg-white/80 dark:bg-black/80 py-6 px-8 lg:px-16">
-		<nav class="flex justify-between">
-				<!--Logo etc-->
-				<a href="/" class="text-indigo-500 font-bold text-lg">Logo</a>
+{% css %}
+{% include "./header.css" %}
+{% endcss %}
 
-				{% set navPages = collections.all | eleventyNavigation %}
-				<ul class="flex flex-row space-x-8">
-					{% for item in navPages %}
-						<li><a href="{{ item.url }}">{{ item.key }}</a></li>
-					{% endfor %}
-				</ul>
-		</nav>
-</div>
+<nav class="nav-bar">
+  <!--Logo etc-->
+  <a href="/" class="logo-container">
+    <img src="/img/logo.svg" alt="Krogen Amerikas Logotyp">
+  </a>
+
+  {% set navPages = collections.all | eleventyNavigation %}
+  <ul class="nav-list">
+    {% for item in navPages %}
+      <li class="nav-item">
+        <a href="{{ item.url }}" class="nav-link">{{ item.key }}</a>
+      </li>
+    {% endfor %}
+  </ul>
+</nav>

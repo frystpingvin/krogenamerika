@@ -5,9 +5,6 @@ const pluginBundle = require("@11ty/eleventy-plugin-bundle");
 const pluginNavigation = require("@11ty/eleventy-navigation");
 const { EleventyHtmlBasePlugin } = require("@11ty/eleventy");
 
-const pluginDrafts = require("./eleventy.config.drafts.js");
-const pluginImages = require("./eleventy.config.images.js");
-
 module.exports = function(eleventyConfig) {
 	// Create our markdown-it renderer
 	const mdLib = mdIt();
@@ -27,10 +24,6 @@ module.exports = function(eleventyConfig) {
 
 	// Watch content images for the image pipeline.
 	eleventyConfig.addWatchTarget("content/**/*.{svg,webp,png,jpeg}");
-
-	// App plugins
-	eleventyConfig.addPlugin(pluginDrafts);
-	eleventyConfig.addPlugin(pluginImages);
 
 	// Official plugins
 	eleventyConfig.addPlugin(pluginNavigation);
