@@ -1,0 +1,16 @@
+footer {
+	width: 100%;
+	display: flex;
+	justify-content: space-between;
+	align-items: flex-end;
+	background-color: var(--bg-secondary);
+	padding: 2rem;
+	margin-top: 2rem;
+}
+
+.attribution {
+	color: var(--fg-tertiary);
+}
+.attribution a {
+	color: var(--fg-tertiary);
+}

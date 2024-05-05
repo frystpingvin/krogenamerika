@@ -1,14 +1,18 @@
-<footer class="w-full flex justify-between items-end space-y-4 p-8 lg:p-16 bg-stone-100 dark:bg-stone-900">
-    <div>
-        <span class="text-2xl font-medium">Krogen Amerika</span>
-        <ul>
-            <li>Läroverksgatan 5</li>
-            <li>582 27 Linköping</li>
-        </ul>
-        <ul>
-            <li><a href="mailto:krogenamerika@gmail.com">krogenamerika@gmail.com</a></li>
-            <li>Plusgiro: 63 52 31 - 4</li>
-        </ul>
-    </div>
-    <span class="opacity-50">Hemsida av <a href="https://samuellie.se">Samuel Lie</a></span>
+{% css %}
+  {% include "./footer.css" %}
+{% endcss %}
+
+<footer>
+  <div>
+    <span class="h2">Krogen Amerika</span>
+    <ul class="no-list-style">
+      <li>Läroverksgatan 5</li>
+      <li>582 27 Linköping</li>
+    </ul>
+    <ul class="no-list-style">
+      <li><a href="mailto:krogenamerika@gmail.com">krogenamerika@gmail.com</a></li>
+      <li>Plusgiro: 63 52 31 - 4</li>
+    </ul>
+  </div>
+  <span class="attribution">Hemsida av <a href="https://samuellie.se">Samuel Lie</a></span>
 </footer>
